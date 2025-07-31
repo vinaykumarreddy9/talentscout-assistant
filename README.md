@@ -117,7 +117,7 @@ The workflow performs two major tasks:
 
 ## 👨‍💻 Author
 
-**Your Name** – AI/ML Intern | [LinkedIn](#) | [GitHub](#)
+**Kovvuri Vinay Kumar Reddy** 
 
 ---
 
