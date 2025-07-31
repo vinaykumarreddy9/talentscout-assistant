@@ -10,9 +10,6 @@ venv/
 .env
 .env.*
 
-# SQLite database
-talentscout.db
-
 # Jupyter Notebooks
 *.ipynb_checkpoints
 *.ipynb

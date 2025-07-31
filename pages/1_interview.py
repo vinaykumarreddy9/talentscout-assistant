@@ -14,6 +14,7 @@ import requests
 
 # --- Save to DB ---
 def save_candidate(candidate_id, name, email, experience, phone, location, position, skills):
+    # Loading user data in to database
     conn = sqlite3.connect("talentscout.db")
     cursor = conn.cursor()
     cursor.execute("INSERT INTO candidates VALUES (?, ?, ?, ?, ?, ?,?,?,?)",
@@ -22,6 +23,7 @@ def save_candidate(candidate_id, name, email, experience, phone, location, posit
     conn.close()
 
 def save_response(candidate_id, skill, question, answer, feedback):
+    # Loading user responses to the database
     conn = sqlite3.connect("talentscout.db")
     cursor = conn.cursor()
     cursor.execute('''INSERT INTO responses
@@ -32,10 +34,6 @@ def save_response(candidate_id, skill, question, answer, feedback):
     conn.commit()
     conn.close()
 def main():
-    if "database" not in st.session_state:
-        st.session_state.database = "database"
-        initialize_database()
-
     # --- App Start ---
     st.set_page_config(page_title="TalentScout Interview", layout="centered")
 
