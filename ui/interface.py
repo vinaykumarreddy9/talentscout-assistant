@@ -8,6 +8,7 @@ import sqlite3
 import uuid
 import datetime
 import random
+from init_db import initialize_database
 from streamlit_lottie import st_lottie
 import requests
 
@@ -31,6 +32,10 @@ def save_response(candidate_id, skill, question, answer, feedback):
     conn.commit()
     conn.close()
 def main():
+    if "database" not in st.session_state:
+        st.session_state.database = "database"
+        initialize_database()
+
     # --- App Start ---
     st.set_page_config(page_title="TalentScout Interview", layout="centered")
 

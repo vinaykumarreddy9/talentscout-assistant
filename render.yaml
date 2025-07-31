@@ -2,9 +2,7 @@ services:
   - type: web
     name: talentscout-assistant
     env: python
-    buildCommand: |
-      pip install -r requirements.txt
-      python init_db.py       # <-- executes DB setup once before app starts
+    buildCommand: ""
     startCommand: streamlit run ui/interface.py
     envVars:
       - key: PYTHON_VERSION
