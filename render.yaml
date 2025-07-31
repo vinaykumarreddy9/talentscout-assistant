@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: talentscout-assistant
+    env: python
+    buildCommand: ""
+    startCommand: streamlit run ui_interface.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10

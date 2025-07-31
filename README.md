@@ -108,19 +108,12 @@ The workflow performs two major tasks:
 
 ## 🚀 Future Enhancements
 
-- 📬 Auto email feedback to candidates
-- 📈 Analytics dashboard for admins
 - 🌍 Multilingual candidate support
-- ☁️ Deployment on HuggingFace Spaces / AWS
+- ☁️ Deployment on Render
 
 ---
 
 ## 👨‍💻 Author
 
-**Your Name** – AI/ML Intern | [LinkedIn](#) | [GitHub](#)
+**Kovvuri Vinay Kumar Reddy**
 
----
-
-## 📄 License
-
-MIT License - Use it, share it, improve it ⭐

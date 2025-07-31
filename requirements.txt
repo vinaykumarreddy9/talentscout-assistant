@@ -5,4 +5,5 @@ langchain-experimental
 langchain-groq
 langgraph
 streamlit
-streamlit_lottie
+streamlit-lottie
+sqlite3 
