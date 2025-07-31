@@ -4,7 +4,7 @@ services:
     env: python
     buildCommand: |
       pip install -r requirements.txt
-      python create_db.py       # <-- executes DB setup once before app starts
+      python init_db.py       # <-- executes DB setup once before app starts
     startCommand: streamlit run ui/interface.py
     envVars:
       - key: PYTHON_VERSION
