@@ -44,13 +44,16 @@ TalentScout is a smart interview assistant that leverages **LangGraph + LLMs** t
 ## 🧭 Project Structure
 
 ```
-├── graph/         # LangGraph workflow logic (question generation, evaluation)
-├── ui/            # Streamlit UI components
-├── utils/         # LLM models, prompts, helper functions
-├── init_db.py     # DB setup script
+├── graph/             # LangGraph workflow logic (question generation, evaluation)
+├── pages/
+│   ├── 1_interview.py # Candidate-facing interview page
+│   └── 2_admin.py     # Admin panel for viewing candidates and results
+├── utils/             # LLM models, prompts, helper functions
+├── init_db.py         # DB setup script
+├── home.py            # Entry point to the Streamlit app (main launcher)
 ├── requirements.txt
-├── streamlit_app.py (you may rename interface.py)
-├── talentscout.db (excluded in .gitignore)
+├── talentscout.db     # SQLite database (excluded in .gitignore)
+
 ```
 
 ---
@@ -74,7 +77,7 @@ python init_db.py
 ### 3️⃣ Launch App
 
 ```bash
-streamlit run ui/interface.py
+streamlit run home.py
 ```
 
 ---
