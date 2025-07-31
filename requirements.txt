@@ -6,4 +6,3 @@ langchain-groq
 langgraph
 streamlit
 streamlit-lottie
-sqlite3 
