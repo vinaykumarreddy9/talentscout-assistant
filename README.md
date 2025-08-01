@@ -67,7 +67,7 @@ The application consists of two primary interfaces, both built with Streamlit:
 
 You can navigate between both pages using the sidebar in the Streamlit application.
 
-*(Suggestion: Add screenshots or a GIF of your application in action here!)*
+
 
 ---
 
@@ -121,7 +121,9 @@ streamlit run home.py
 Your web browser will open a new tab with the TalentScout homepage.
 ### Admin Panel Access
 Navigate to the "Admin" page from the sidebar to access the dashboard.
+
 Email: admin@talentscout.ai
+
 Password: admin123
 
 
@@ -138,7 +140,9 @@ graph TD
 ```
 
 **Router Node**: The entry point that checks the current state to decide the path. If an unanswered question exists in the state, it routes to the evaluator. Otherwise, it proceeds to the question_generator.
+
 **Question Generator Node**: Generates a new, relevant interview question based on the candidate's specified skill, experience level, and a desired complexity.
+
 **Evaluator Node**: Takes the candidate's answer and evaluates it against multiple criteria, returning a structured JSON object using a Pydantic schema for consistency.
 
 
@@ -146,30 +150,30 @@ graph TD
 Data is stored across two main tables in the talentscout.db SQLite database.
 **candidates Table**
 ```Table
-Field	Type	Description
+Field	        Type	Description
 candidate_id	TEXT	Primary Key, Unique UUID for the candidate
-name	TEXT	Candidate's full name
-email	TEXT	Candidate's email address
-phone	TEXT	Candidate's phone number
-location	TEXT	Candidate's location
-position	TEXT	Position applied for
-experience	TEXT	Years of experience
-skills	TEXT	Comma-separated list of skills
+name	        TEXT	Candidate full name
+email	        TEXT	Candidate's email address
+phone	        TEXT	Candidate's phone number
+location	    TEXT	Candidate's location
+position	    TEXT	Position applied for
+experience	    TEXT	Years of experience
+skills	        TEXT	Comma-separated list of skills
 session_time	TEXT	Timestamp of the session
 ```
 **Response Table**
 ```sh
-Field	Type	Description
-id	INTEGER	Primary Key, Auto-incrementing ID
-candidate_id	TEXT	Foreign Key to candidates table
-skill	TEXT	The skill the question is based on
-question	TEXT	The question asked
-answer	TEXT	The candidate's answer
-sentiment	TEXT	Sentiment analysis of the answer
-correctness	INTEGER	Score for technical correctness
-length_score	INTEGER	Score for appropriate length
-grammar_score	INTEGER	Score for grammar
-confidence_score	INTEGER	Score for perceived confidence
+Field	            Type	    Description
+id	                INTEGER	    Primary Key, Auto-incrementing ID
+candidate_id	    TEXT	    Foreign Key to candidates table
+skill	            TEXT	    The skill the question is based on
+question	        TEXT	    The question asked
+answer	            TEXT	    The candidate answer
+sentiment	        TEXT	    Sentiment analysis of the answer
+correctness	        INTEGER	    Score for technical correctness
+length_score	    INTEGER	    Score for appropriate length
+grammar_score	    INTEGER	    Score for grammar
+confidence_score	INTEGER	    Score for perceived confidence
 ```
 
 # 📁 Project Structure
@@ -195,18 +199,26 @@ TalentScout_Hiring_Assistant/
 
 # 🗺️ Roadmap
 Here are some planned improvements for future versions of TalentScout:
+
 **Secure Admin Login**: Replace hardcoded credentials with a database-backed authentication system.
+
 **Visual Analytics**: Add charts and graphs to the admin panel for better visualization of candidate performance.
+
 **Email Notifications**: Automatically send confirmation or results emails to candidates upon completion.
+
 **Skill-Level Tagging**: Implement difficulty analysis for questions and tag them accordingly.
+
 **Cloud Database Integration**: Migrate from SQLite to a scalable cloud database like PostgreSQL or MySQL.
+
 **Containerization**: Add a Dockerfile for easy deployment with Docker.
 
 # 🙌 Contributing
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
+
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Fork the Project
+
+**Fork the Project**
 Create your Feature Branch (git checkout -b feature/AmazingFeature)
 Commit your Changes (git commit -m 'Add some AmazingFeature')
 Push to the Branch (git push origin feature/AmazingFeature)
