@@ -1,123 +1,188 @@
+📄 TalentScout: AI-Powered Hiring Assistant
+TalentScout is an intelligent, interactive hiring assistant that automates candidate evaluation through LLM-based interviews and feedback. It features:
 
-# 🚀 TalentScout Hiring Assistant
+💬 AI-generated interview questions based on a candidate's skill and experience.
 
-An AI-powered candidate screening assistant that intelligently evaluates technical candidates based on their provided skillsets and experience.
+🧠 Automatic evaluation of responses using a structured rubric.
 
-![Streamlit UI](https://img.shields.io/badge/Built%20With-Streamlit-red?style=for-the-badge)
-![LangGraph Workflow](https://img.shields.io/badge/LLM%20Orchestrator-LangGraph-blueviolet?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+📊 Admin dashboard for reviewing candidate data and exporting reports.
 
----
 
-## 📌 Overview
+📌 Table of Contents
 
-TalentScout is a smart interview assistant that leverages **LangGraph + LLMs** to dynamically:
-- Collect candidate info through a sleek **Streamlit** UI
-- Generate tech-specific questions from a given skill set
-- Analyze responses using **sentiment analysis**, **grammar scoring**, and **LLM-based evaluation**
-- Store candidate history and performance securely
+🚀 Demo
 
----
+📁 Project Structure
 
-## 🛠️ Tech Stack
+🔧 Features
 
-| Area        | Technology          |
-|-------------|---------------------|
-| Frontend    | Streamlit           |
-| Workflow    | LangGraph           |
-| LLM Backend | OpenAI API / LLaMA  |
-| Database    | SQLite              |
-| Language    | Python              |
+🛠️ Tech Stack
 
----
+📦 Installation
 
-## 💡 Features
+💡 Usage
 
-- 🌐 Interactive UI for candidate interaction
-- 🧠 LLM-generated technical questions based on input skills
-- 📊 Sentiment & performance evaluation using LLMs
-- 🔐 Local database (SQLite) for storing all candidate sessions securely
-- 🧾 Final session summary with performance breakdown
+🧠 LangGraph Workflow
 
----
+🔒 Admin Access
 
-## 🧭 Project Structure
+🗃️ Database Schema
 
-```
-├── graph/             # LangGraph workflow logic (question generation, evaluation)
+📌 Future Improvements
+
+
+🚀 Demo
+Candidate Interface and Admin Panel run as two Streamlit apps.
+Visit both pages using the sidebar or deploy them separately.
+
+
+📁 Project Structure
+pgsql
+Copy
+Edit
+TalentScout_Hiring_Assistant/
 ├── pages/
-│   ├── 1_interview.py # Candidate-facing interview page
-│   └── 2_admin.py     # Admin panel for viewing candidates and results
-├── utils/             # LLM models, prompts, helper functions
-├── init_db.py         # DB setup script
-├── home.py            # Entry point to the Streamlit app (main launcher)
-├── requirements.txt
-├── talentscout.db     # SQLite database (excluded in .gitignore)
+│   ├── 1_interview.py          # Candidate interview app
+│   └── 2_admin.py              # Admin panel
+├──graph
+│   ├── agent.py                # LangGraph nodes: evaluator, question generator
+│   ├── workflow.py             # LangGraph flow configuration
+│   └── state.py                # LangGraph state + Evaluator format
+├── utils
+│   ├── prompts.py              # LLM prompts
+│   └──models.py                # Groq model wrapper
+├── init_db.py                 # Database setup
+├── home.py                    # Streamlit homepage
+├── talentscout.db             # SQLite database (auto-generated)
+├── requirements.txt           # Python dependencies
+└── README.md                  # Project documentation
 
-```
 
----
+🔧 Features
 
-## 🧪 Setup Instructions
+✅ Candidate Assessment
+Collects personal info, experience, and skills.
 
-### 1️⃣ Clone & Install
+Dynamically generates 5 domain-specific questions.
+
+Uses LangGraph + LLM for intelligent question generation and response evaluation.
+
+📊 Admin Panel
+
+Secure login with hardcoded credentials (to be improved with DB).
+
+View all candidate profiles and responses.
+
+Export data as CSV.
+
+🧠 LLM Capabilities
+
+Uses Groq + Llama 3 to:
+
+Generate conceptual questions (no code).
+
+Evaluate answers across correctness, grammar, sentiment, confidence, and length.
+
+💾 Persistent Storage
+
+Data stored in SQLite3:
+
+candidates table
+
+responses table
+
+🛠️ Tech Stack
+
+Category	            Tech / Tool
+🖥 Frontend UI	        Streamlit
+🧠 LLM Inference	   LangChain + Groq + Llama 3
+⚙ Workflow Engine	   LangGraph
+🗃 Database             SQLite3
+📜 Prompt Templates	   LangChain PromptTemplate
+🐍 Language	           Python 3.11+
+
+📦 Installation
 
 ```bash
-git clone https://github.com/vinaykumarreddy9/talentscout-assistant.git
-cd talentscout-assistant
+git clone https://github.com/vinaykumarreddy9/talentscout-hiring-assistant.git
+cd talentscout-hiring-assistant
+
+# Install dependencies
 pip install -r requirements.txt
-```
 
-### 2️⃣ Initialize Database
+# Set your GROQ API Key in .env
+echo "GROQ_API_KEY=your_groq_api_key" > .env
 
-```bash
+# Initialize the DB
 python init_db.py
 ```
 
-### 3️⃣ Launch App
+💡 Usage
+
+It is an multi page application. Run the project or deploy on platforms like Render:
+
+### Launch App
 
 ```bash
 streamlit run home.py
 ```
 
----
+🧠 LangGraph Workflow
+Defined in workflow.py:
 
-## 🧠 LangGraph Workflow
+```mermaid
+graph TD
+    START -->|if question exists| evaluator --> END
+    START -->|else| question_generator --> END
+```
+Nodes:
+intent_router_node: Decides route based on state["question"].
 
-The workflow performs two major tasks:
+question_generator: Uses skill, experience, complexity.
 
-1. **Question Generation** — based on random sampled skills & experience
+evaluator: Returns structured response using Pydantic schema.
 
-2. **Response Evaluation** — returns feedback including:
+🔒 Admin Access
+Field	        Value
+Email	        admin@talentscout.ai
+Password	    admin123
 
-   - Sentiment
+Credentials are hashed using SHA-256.
 
-   - Correctness score
+🗃️ Database Schema
+candidates Table
+Field	            Type
+candidate_id	    TEXT (PK)
+name	            TEXT
+email	            TEXT
+phone	            TEXT
+location	        TEXT
+position	        TEXT
+experience	        TEXT
+skills	            TEXT (CSV)
+session_time	    TEXT
 
-   - Grammar & length check
+responses Table
+Field	            Type
+id	                INTEGER (PK)
+candidate_id	    TEXT (FK)
+skill	            TEXT
+question	        TEXT
+answer	            TEXT
+sentiment	        TEXT
+correctness	        INTEGER
+length_score	    INTEGER
+grammar_score	    INTEGER
+confidence_score	INTEGER
 
-   - Confidence indicator
+📌 Future Improvements
 
----
+🔐 Secure admin login with database-based auth
 
-## 🔐 Data Security & Multi-user Support
+📈 Visual analytics for candidate responses
 
-- Each candidate is tracked by a UUID
-- All interactions tied to their session ID
-- Only stores anonymized local data (SQLite)
-- Compatible with future upgrade to PostgreSQL
+📬 Email notifications to candidates
 
----
+🧩 Skill-level tagging and difficulty analysis
 
-## 🚀 Future Enhancements
-
-- 🌍 Multilingual candidate support
-- ☁️ Deployment on Render
-
----
-
-## 👨‍💻 Author
-
-**Kovvuri Vinay Kumar Reddy** 
-
-
+☁️ Switch to Postgres or cloud DB for scalability
