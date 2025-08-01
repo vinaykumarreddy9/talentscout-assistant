@@ -155,22 +155,22 @@ candidate_id	    TEXT	    Primary Key, Unique UUID for the candidate
 name	            TEXT	    Candidate full name
 email	            TEXT	    Candidate's email address
 phone	            TEXT	    Candidate's phone number
-location	    TEXT	        Candidate's location
-position	    TEXT	        Position applied for
-experience	    TEXT	        Years of experience
+location	    TEXT	    Candidate's location
+position	    TEXT	    Position applied for
+experience	    TEXT	    Years of experience
 skills	            TEXT	    Comma-separated list of skills
 session_time	    TEXT	    Timestamp of the session
 ```
 **Response Table**
 ```sh
 Field	            Type	    Description
-id	                INTEGER	    Primary Key, Auto-incrementing ID
+id	            INTEGER	    Primary Key, Auto-incrementing ID
 candidate_id	    TEXT	    Foreign Key to candidates table
 skill	            TEXT	    The skill the question is based on
-question	        TEXT	    The question asked
+question	    TEXT	    The question asked
 answer	            TEXT	    The candidate answer
-sentiment	        TEXT	    Sentiment analysis of the answer
-correctness	        INTEGER	    Score for technical correctness
+sentiment	    TEXT	    Sentiment analysis of the answer
+correctness	    INTEGER	    Score for technical correctness
 length_score	    INTEGER	    Score for appropriate length
 grammar_score	    INTEGER	    Score for grammar
 confidence_score	INTEGER	    Score for perceived confidence
