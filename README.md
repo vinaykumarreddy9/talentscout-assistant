@@ -150,16 +150,16 @@ graph TD
 Data is stored across two main tables in the talentscout.db SQLite database.
 **candidates Table**
 ```Table
-Field	        Type	Description
-candidate_id	TEXT	Primary Key, Unique UUID for the candidate
-name	        TEXT	Candidate full name
-email	        TEXT	Candidate's email address
-phone	        TEXT	Candidate's phone number
-location	    TEXT	Candidate's location
-position	    TEXT	Position applied for
-experience	    TEXT	Years of experience
-skills	        TEXT	Comma-separated list of skills
-session_time	TEXT	Timestamp of the session
+Field	            Type	    Description
+candidate_id	    TEXT	    Primary Key, Unique UUID for the candidate
+name	            TEXT	    Candidate full name
+email	            TEXT	    Candidate's email address
+phone	            TEXT	    Candidate's phone number
+location	        TEXT	    Candidate's location
+position	        TEXT	    Position applied for
+experience	        TEXT	    Years of experience
+skills	            TEXT	    Comma-separated list of skills
+session_time	    TEXT	    Timestamp of the session
 ```
 **Response Table**
 ```sh
