@@ -173,7 +173,7 @@ sentiment	    TEXT	    Sentiment analysis of the answer
 correctness	    INTEGER	    Score for technical correctness
 length_score	    INTEGER	    Score for appropriate length
 grammar_score	    INTEGER	    Score for grammar
-confidence_scoreINTEGER	    Score for perceived confidence
+confidence_score    INTEGER	    Score for perceived confidence
 ```
 
 # 📁 Project Structure
