@@ -12,28 +12,28 @@ class State(MessagesState):
     complexity : int
     question : str
     answer : str
-    correctness : str
+    correctness : int
     sentiment : str
-    grammer_quality : str
-    confidence : str
-    length_score : str
+    grammer_quality : int
+    confidence : int
+    length_score : int
 
 class EvaluatorFormat(BaseModel):
     """
        Pydantic model for formatting and validating the LLM-generated evaluation of an interview answer.
     """
-    correctness: str = Field(
+    correctness: int = Field(
         description="Rate the factual correctness of the answer on a scale of 0 to 10."
     )
     sentiment: str = Field(
         description="Classify the sentiment of the answer as 'positive', 'neutral', or 'negative'."
     )
-    grammer_quality: str = Field(
+    grammer_quality: int = Field(
         description="Rate the grammatical quality of the answer on a scale of 0 to 10."
     )
-    confidence: str = Field(
+    confidence: int = Field(
         description="Rate the level of confidence expressed in the answer on a scale of 0 to 10."
     )
-    length_score : str = Field(
+    length_score : int = Field(
         description="Score the length of the answer on a scale from 0 to 10"
     )

@@ -26,10 +26,10 @@ def initialize_database():
         question TEXT,
         answer TEXT,
         sentiment TEXT,
-        correctness TEXT,
-        length_score TEXT,
-        grammar_score TEXT,
-        confidence_score TEXT,
+        correctness INTEGER,
+        length_score INTEGER,
+        grammar_score INTEGER,
+        confidence_score INTEGER,
         FOREIGN KEY(candidate_id) REFERENCES candidate_info(id)
     )''')
 

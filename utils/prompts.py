@@ -11,11 +11,11 @@ EVALUATOR_PROMPT = PromptTemplate.from_template(
 
     Your task is to evaluate the answer strictly based on its relevance to the question and skill provided. Use the following scoring criteria:
 
-    1. **correctness**: Evaluate how factually and contextually accurate the answer is, considering the skill. Score from 0 to 10 in string.
+    1. **correctness**: Evaluate how factually and contextually accurate the answer is, considering the skill. Score from 0 to 10 in integer.
     2. **sentiment**: Classify the tone of the answer as one of: 'positive', 'neutral', or 'negative'.
-    3. **grammer_quality**: Assess grammar, fluency, and language quality. Score from 0 to 10 in string.
-    4. **confidence**: Rate the confidence level conveyed through tone, vocabulary, and clarity. Score from 0 to 10 in string.
-    5. **length_score**: Evaluate the appropriateness of the answer's length and assign a score between 0 and 10 in string.
+    3. **grammer_quality**: Assess grammar, fluency, and language quality. Score from 0 to 10 in integer.
+    4. **confidence**: Rate the confidence level conveyed through tone, vocabulary, and clarity. Score from 0 to 10 in integer.
+    5. **length_score**: Evaluate the appropriateness of the answer's length and assign a score between 0 and 10 in integer.
 
     Strict Rules:
     - If the answer clearly indicates the candidate doesn’t know (e.g., "I don't know", "I'll look into it", "Not sure", etc.), then set **all scores to "0"** and sentiment to **'neutral'**.
