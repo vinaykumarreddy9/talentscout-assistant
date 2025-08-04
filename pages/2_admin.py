@@ -59,7 +59,7 @@ def admin_dashboard():
 
     if st.button("🔓 Logout"):
         st.session_state["admin_logged_in"] = False
-        st.experimental_rerun()
+        st.rerun()
 
 # -------------------------------
 def main():
